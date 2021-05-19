@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     Log.d("lifeCycle"   , "onCreate")
     }
 
+
     override fun onStart() {
         super.onStart()
         Log.d("lifeCycle"   , "onStart")

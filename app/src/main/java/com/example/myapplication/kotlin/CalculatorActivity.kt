@@ -1,10 +1,9 @@
 package com.example.myapplication.kotlin
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
-import com.example.myapplication.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.CalculatorMainBinding
 
 class CalculatorActivity : AppCompatActivity() {
@@ -17,6 +16,7 @@ class CalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = CalculatorMainBinding.inflate(layoutInflater)
+
 
 
         setContentView(binding.root)
@@ -77,9 +77,17 @@ class CalculatorActivity : AppCompatActivity() {
                 binding.resultText.text = resultValue
             }
         }
+
+        binding.resultText.setOnClickListener {
+            //
+            val url = "http://www.example.com"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
     }
 
-    fun prograssValue(value : Int){
+    fun prograssValue(value: Int){
         if(prograssValue == "0")
             prograssValue = ""
         prograssValue  =  prograssValue + value.toString()
